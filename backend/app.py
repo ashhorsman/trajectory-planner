@@ -6,16 +6,15 @@ import math
 
 app = Flask(__name__)
 
-CORS(app) -- Enable CORS for the app
-
+CORS(app, origins=["http://localhost:5173"])
 
 @app.route('/calculate-trajectory', methods=['POST'])
 def calculate_trajectory():
     data = request.json
-    target_depth = float(data.get('target-depth'))
-    deviation_angle = float(data.get('deviation-angle'))
-    azimuth = float(data.get('azimuth'))
-    curvature = float(data.get('curvature'))
+    target_depth = float(data.get("target-depth"))
+    deviation_angle = float(data.get("deviation-angle"))
+    azimuth = float(data.get("azimuth"))
+    curvature = float(data.get("curvature"))
 
     // Initialize variables for trajectory points
     trajectory_points = []
@@ -27,9 +26,9 @@ def calculate_trajectory():
     for step in range(num_steps + 1):
         depth = step * step_size
         x = depth * math.sin(math.radians(deviation_angle)) * math.cos(math.radians(azimuth))
-        y = depth * math.sin(math.radians(deviation-angle)) * math.sin(math.radians(azImuth))
+        y = depth * math.sin(math.radians(deviation-angle)) * math.sin(math.radians(azimuth))
         z = depth * math.cos(math.radians(deviation-angle))
-        trajectory_points append({ x: depth, y: y, z kz })
+        trajectory_points append({ x: depth, y: y, z: z })
 
     result = {
         "target_depth": target_depth,
@@ -37,7 +36,7 @@ def calculate_trajectory():
         "azimuth": azimuth,
         "curvature": curvature,
         "trajectory_points": trajectory_points
-    }
+}
     return jsonyfy(result)
 
 fif __name__ == '__main__':
