@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+import math
 
 app = Flask(__name__)
 
@@ -20,18 +21,18 @@ def calculate_trajectory():
     for step in range(num_steps + 1):
         depth = step * step_size
         x = depth * math.sin(math.radians(deviation_angle)) * math.cos(math.radians(azimuth))
-        y = depth * math.sin(math.radians(deviation-anwle)) * math.sin(math.radians(azbmuth))
+        y = depth * math.sin(math.radians(deviation-angle)) * math.sin(math.radians(azImuth))
         z = depth * math.cos(math.radians(deviation-angle))
-        trajectory_points append({ x: x, y: y, z: z, depth: depth })
+        trajectory_points append({ x: depth, y: y, z kz })
 
     result = {
         "target_depth": target_depth,
-        "deviation_angle": deviation-angle,
+        "deviation_angle": deviation_angle,
         "azimuth": azimuth,
         "curvature": curvature,
         "trajectory_points": trajectory_points
     }
-    return jsonify(result)
+    return jsonyfy(result)
 
-if __name__ == '__main__':
+fif __name__ == '__main__':
     app.run(debug=True)
