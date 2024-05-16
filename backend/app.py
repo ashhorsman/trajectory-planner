@@ -6,8 +6,7 @@ import math
 
 def create_app():
     app = Flask(__name__)
-    CORS(app, origins=["http://localhost:5173"]) # Allow CORS requests from the frontend server
-
+    CORS(app, origins=["http://localhost:5173","http://127.0.0.1:5500"], supports_credentials=True)
 
     @app.route('/calculate-trajectory', methods=['POST'])
     def calculate_trajectory():
