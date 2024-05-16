@@ -1,12 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trajectory Planner</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Trajectory Planner</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<h1>Trajectory Planner</h1>
+		<form id="trajectory-form">
+			<label for="target-depth">Target Depth:</label>
+			<input type="number" id="target-depth" name="target-depth" required>
+			<label for="deviation-angle">Deviation Angle:</label>
+			<input type="number" id="deviation-angle" name="deviation-angle" required>
+			<label for="azimuth">Azimuth:</label>
+			<input type="number" id="azimuth" name="azimuth" required>
+			<label for="curvature">Curvature Requirements:</label>
+			<input type="number" id="curvature" name="curvature" required>
+			<button type="submit">Calculate Trajectory</button>
+		</form>
+	<div id="visualization-2d">2D Visualization Placeholder</div>
+	<div id="visualization-3d">3D Visualization Placeholder</div>
+	<script src="main.js"></script>
+</body>
 </html>
