@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const TrajectoryForm = () => {
+const TrajectoryForm = ({ setTrajectory }) => {
   const [formData, setFormData] = useState({
     target_depth: '',
     deviation_angle: '',
@@ -23,7 +23,7 @@ const TrajectoryForm = () => {
       body: JSON.stringify(formData)
     });
     const data = await response.json();
-    console.log(data);
+    setTrajectory(data);
   };
 
   return (

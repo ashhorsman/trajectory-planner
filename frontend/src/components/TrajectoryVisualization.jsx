@@ -13,7 +13,7 @@ const TrajectoryVisualization = ({ trajectory }) => {
     // Draw the trajectory as a simple line
     ctx.beginPath();
     ctx.moveTo(50, 50);
-    ctx.lineTo(150, 150);
+    ctx.lineTo(150, 150); // Example coordinates; replace with actual trajectory data
     ctx.stroke();
   }, [trajectory]);
 
